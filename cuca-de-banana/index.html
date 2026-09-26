@@ -1,0 +1,1178 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Cuca de banana com creme e farofa. Receita com ajuste automático para o tamanho da sua forma.">
+<meta property="og:title" content="Cuca de Banana Cremosa">
+<meta property="og:description" content="Molhadinha por dentro, crocante por cima e muito perfumada.">
+<meta name="theme-color" content="#FAF0D2">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Cuca de Banana Cremosa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Kalam:wght@400;700&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --ground: #FAF0D2;
+    --paper: #FFF8E6;
+    --ink: #3A2317;
+    --ink-soft: #6E5140;
+    --line: #E7D2A2;
+    --caramel: #B8651A;
+    --caramel-soft: #F3DDB5;
+    --leaf: #4D6B36;
+    --leaf-soft: #E2E9CF;
+    --banana: #F4D35E;
+    --banana-core: #FBEFB8;
+    --seed: #6B4A1E;
+    --crumb: #C98A3F;
+    --crumb-dark: #9A5E22;
+    --custard: #F7E3A1;
+    --dough: #E4B566;
+    --shadow: 0 1px 0 rgba(90, 55, 20, .06), 0 8px 24px -12px rgba(90, 55, 20, .25);
+    --display: "Young Serif", Georgia, "Times New Roman", serif;
+    --body: "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --hand: "Kalam", "Bradley Hand", "Segoe Print", cursive;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --ground: #1E1510;
+      --paper: #2A1E16;
+      --ink: #F5E7CC;
+      --ink-soft: #C9B294;
+      --line: #4A3727;
+      --caramel: #E9A152;
+      --caramel-soft: #4A321D;
+      --leaf: #A9C58A;
+      --leaf-soft: #2F3A22;
+      --shadow: 0 1px 0 rgba(0,0,0,.3), 0 10px 28px -14px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #1E1510;
+    --paper: #2A1E16;
+    --ink: #F5E7CC;
+    --ink-soft: #C9B294;
+    --line: #4A3727;
+    --caramel: #E9A152;
+    --caramel-soft: #4A321D;
+    --leaf: #A9C58A;
+    --leaf-soft: #2F3A22;
+    --shadow: 0 1px 0 rgba(0,0,0,.3), 0 10px 28px -14px rgba(0,0,0,.7);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding-inline: 18px;
+    padding-block: 12px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+  }
+  h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; text-wrap: balance; line-height: 1.12; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.3rem; }
+  p { margin: 0; }
+  ul, ol { margin: 0; padding: 0; list-style: none; }
+
+  .eyebrow {
+    font-size: .74rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--leaf);
+  }
+  .note {
+    font-family: var(--hand);
+    font-size: 1.12rem;
+    line-height: 1.35;
+    color: var(--caramel);
+  }
+  .section { display: flex; flex-direction: column; gap: 18px; }
+  .section-head { display: flex; flex-direction: column; gap: 6px; }
+  .lead { color: var(--ink-soft); }
+
+  /* ---------- Hero ---------- */
+  .hero { display: flex; flex-direction: column; gap: 20px; padding-top: 8px; }
+  .slices {
+    display: flex;
+    gap: 6px;
+    overflow: hidden;
+    height: 44px;
+    margin-inline: -18px;
+    padding-inline: 12px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+  .slices svg { flex: 0 0 auto; width: 44px; height: 44px; }
+  .slices svg:nth-child(even) { transform: translateY(4px) rotate(24deg); width: 38px; }
+  .slices svg:nth-child(3n) { transform: rotate(-30deg); }
+  .hero h1 {
+    font-size: clamp(2.6rem, 11vw, 3.6rem);
+    line-height: 1.02;
+    letter-spacing: -.01em;
+  }
+  .hero h1 span { color: var(--caramel); display: block; }
+  .hero .note { font-size: 1.3rem; }
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+  }
+  .fact { padding: 12px 10px; text-align: center; display: flex; flex-direction: column; gap: 2px; }
+  .fact + .fact { border-left: 1px dashed var(--line); }
+  .fact b {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+  }
+  .fact small { font-size: .78rem; color: var(--ink-soft); }
+  .awake {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font: 600 .95rem var(--body);
+    color: var(--ink);
+    background: transparent;
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    padding: 10px 16px 10px 12px;
+    cursor: pointer;
+  }
+  .awake .dot {
+    width: 18px; height: 18px; border-radius: 50%;
+    border: 2px solid var(--ink-soft);
+    display: grid; place-items: center;
+  }
+  .awake[aria-pressed="true"] { border-color: var(--leaf); background: var(--leaf-soft); }
+  .awake[aria-pressed="true"] .dot { border-color: var(--leaf); background: var(--leaf); }
+  .awake-msg { font-size: .85rem; color: var(--ink-soft); }
+
+  /* ---------- Layers ---------- */
+  .layers {
+    display: grid;
+    grid-template-columns: minmax(96px, 34%) 1fr;
+    column-gap: 16px;
+  }
+  .layer-band { position: relative; }
+  .layer-text { padding-block: 10px; display: flex; flex-direction: column; gap: 2px; justify-content: center; }
+  .layer-text strong { font-family: var(--display); font-weight: 400; font-size: 1.12rem; }
+  .layer-text span { color: var(--ink-soft); font-size: .95rem; line-height: 1.4; }
+  .b-farofa {
+    border-radius: 14px 14px 0 0;
+    background:
+      radial-gradient(circle at 20% 35%, var(--crumb-dark) 0 5px, transparent 6px),
+      radial-gradient(circle at 62% 22%, var(--crumb-dark) 0 4px, transparent 5px),
+      radial-gradient(circle at 80% 70%, var(--crumb-dark) 0 6px, transparent 7px),
+      radial-gradient(circle at 40% 75%, #E8B46A 0 5px, transparent 6px),
+      var(--crumb);
+    background-size: 44px 40px, 38px 36px, 50px 44px, 34px 30px, auto;
+  }
+  .b-creme { background: linear-gradient(180deg, #FBEBB8, var(--custard)); }
+  .b-banana {
+    background:
+      radial-gradient(circle, var(--banana-core) 0 6px, var(--banana) 7px 13px, transparent 14px) 0 0 / 30px 30px,
+      radial-gradient(circle, var(--banana-core) 0 5px, var(--banana) 6px 11px, transparent 12px) 15px 15px / 30px 30px,
+      var(--custard);
+  }
+  .b-massa {
+    border-radius: 0 0 14px 14px;
+    background:
+      radial-gradient(circle, rgba(120,70,20,.22) 0 2px, transparent 3px) 0 0 / 16px 14px,
+      radial-gradient(circle, rgba(255,240,200,.35) 0 1.5px, transparent 2.5px) 8px 7px / 16px 14px,
+      var(--dough);
+  }
+  .layers .pan-label {
+    grid-column: 1;
+    text-align: center;
+    font-size: .72rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding-top: 8px;
+    border-top: 3px solid var(--ink-soft);
+    margin-top: 4px;
+  }
+
+  /* ---------- Shopping totals ---------- */
+  .totals {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 6px 16px;
+    box-shadow: var(--shadow);
+  }
+  .totals li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    padding-block: 9px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .totals li:last-child { border-bottom: 0; }
+  .totals .qty { font-variant-numeric: tabular-nums; font-weight: 600; text-align: right; white-space: nowrap; }
+  .totals .sub { display: block; font-size: .82rem; color: var(--ink-soft); }
+
+  /* ---------- Steps ---------- */
+  .steps { display: flex; flex-direction: column; gap: 22px; counter-reset: step; }
+  .step {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .step-head {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .num {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: grid; place-items: center;
+    font-family: var(--display);
+    font-size: 1.35rem;
+    color: var(--paper);
+    background: var(--caramel);
+  }
+  .step-head .eyebrow { color: var(--ink-soft); }
+  .step-body { padding: 14px 18px 18px; display: flex; flex-direction: column; gap: 16px; }
+
+  .ingr { display: flex; flex-direction: column; }
+  .ingr label {
+    display: grid;
+    grid-template-columns: 26px 1fr auto;
+    align-items: start;
+    gap: 10px;
+    padding-block: 9px;
+    border-bottom: 1px dashed var(--line);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .ingr label:last-child { border-bottom: 0; }
+  .ingr input {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px; height: 22px;
+    margin: 1px 0 0;
+    border: 2px solid var(--line);
+    border-radius: 6px;
+    background: var(--ground);
+    display: grid; place-items: center;
+    cursor: pointer;
+  }
+  .ingr input::after {
+    content: "";
+    width: 10px; height: 6px;
+    border: solid var(--paper);
+    border-width: 0 0 2.5px 2.5px;
+    transform: rotate(-45deg) translate(1px, -1px);
+    opacity: 0;
+  }
+  .ingr input:checked { background: var(--leaf); border-color: var(--leaf); }
+  .ingr input:checked::after { opacity: 1; }
+  .ingr input:focus-visible { outline: 3px solid var(--caramel); outline-offset: 2px; }
+  .ingr .name { line-height: 1.35; }
+  .ingr .name em { display: block; font-style: normal; font-size: .82rem; color: var(--ink-soft); }
+  .ingr .qty { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.35; }
+  .ingr .qty small { display: block; font-weight: 500; font-size: .8rem; color: var(--ink-soft); }
+  .ingr label:has(input:checked) .name,
+  .ingr label:has(input:checked) .qty { opacity: .45; text-decoration: line-through; text-decoration-color: var(--ink-soft); }
+
+  .how { display: flex; flex-direction: column; gap: 10px; counter-reset: how; }
+  .how li {
+    counter-increment: how;
+    display: grid;
+    grid-template-columns: 26px 1fr;
+    gap: 10px;
+  }
+  .how li::before {
+    content: counter(how);
+    font-family: var(--display);
+    color: var(--caramel);
+    font-size: 1.05rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+  .how-title { font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--leaf); }
+  .tip {
+    background: var(--caramel-soft);
+    border-radius: 12px;
+    padding: 10px 14px;
+  }
+  .tip .note { color: var(--ink); }
+  .tip .note b { color: var(--caramel); font-weight: 700; }
+
+  /* ---------- Assembly & oven ---------- */
+  .assembly {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .oven {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .oven div {
+    border: 2px solid var(--caramel);
+    border-radius: 14px;
+    padding: 12px;
+    text-align: center;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .oven b { font-family: var(--display); font-weight: 400; font-size: 1.9rem; line-height: 1.05; color: var(--caramel); font-variant-numeric: tabular-nums; }
+  .oven small { font-size: .82rem; color: var(--ink-soft); }
+
+  /* ---------- Extras / cautions ---------- */
+  .extras { display: flex; flex-direction: column; gap: 12px; }
+  .extra {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 12px;
+    align-items: start;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .extra:last-child { border-bottom: 0; padding-bottom: 0; }
+  .extra svg { width: 40px; height: 40px; }
+  .extra strong { display: block; font-family: var(--display); font-weight: 400; font-size: 1.12rem; }
+  .extra p { color: var(--ink-soft); }
+
+  .cautions { display: flex; flex-direction: column; gap: 12px; }
+  .caution {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .caution strong { font-family: var(--display); font-weight: 400; font-size: 1.12rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: .74rem;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--ground);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+  }
+  .tag.high { border-color: var(--caramel); color: var(--caramel); }
+
+  .result {
+    border-top: 3px double var(--line);
+    padding-top: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .result ul { display: flex; flex-direction: column; gap: 8px; }
+  .result li { display: grid; grid-template-columns: 22px 1fr; gap: 8px; }
+  .result li::before { content: ""; width: 10px; height: 10px; margin-top: 8px; border-radius: 50%; background: var(--banana); box-shadow: inset 0 0 0 3px var(--banana-core), 0 0 0 1.5px var(--caramel); }
+  .signoff { text-align: center; padding-top: 10px; display: flex; flex-direction: column; gap: 4px; align-items: center; }
+  .signoff .note { font-size: 1.4rem; }
+  .signoff svg { width: 36px; height: 36px; }
+
+  .totals .qty { white-space: normal; max-width: 55%; }
+  .fact b { overflow-wrap: anywhere; }
+
+  /* ---------- Pan & scaler ---------- */
+  [hidden] { display: none !important; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .pan {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .pan-head { display: grid; grid-template-columns: 48px 1fr; gap: 14px; align-items: center; }
+  .pan-icon { width: 48px; height: 48px; }
+  .pan-main { font-family: var(--display); font-size: 1.3rem; line-height: 1.2; }
+  .pan-sub, .pan-info { color: var(--ink-soft); font-size: .95rem; }
+  .adjust {
+    align-self: stretch;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font: 700 1rem var(--body);
+    color: var(--paper);
+    background: var(--caramel);
+    border: 0;
+    border-radius: 999px;
+    padding: 13px 20px;
+    cursor: pointer;
+  }
+  .adjust::after {
+    content: "";
+    width: 8px; height: 8px;
+    border: solid currentColor;
+    border-width: 0 2px 2px 0;
+    transform: translateY(-2px) rotate(45deg);
+    transition: transform .2s;
+  }
+  .adjust[aria-expanded="true"]::after { transform: translateY(2px) rotate(-135deg); }
+  .adjust:focus-visible, .reset:focus-visible, .awake:focus-visible { outline: 3px solid var(--leaf); outline-offset: 3px; }
+  .panel {
+    border-top: 1px dashed var(--line);
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .shape {
+    margin: 0;
+    padding: 4px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--ground);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+  .shape label { position: relative; cursor: pointer; }
+  .shape input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .shape span { display: block; text-align: center; padding: 10px; border-radius: 9px; font-weight: 600; color: var(--ink-soft); }
+  .shape input:checked + span { background: var(--paper); color: var(--caramel); box-shadow: 0 1px 4px rgba(90,55,20,.18); }
+  .shape input:focus-visible + span { outline: 3px solid var(--leaf); outline-offset: 1px; }
+  .dims { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .dims label { display: flex; flex-direction: column; gap: 6px; font-size: .85rem; font-weight: 700; color: var(--ink-soft); }
+  .unit-wrap {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    background: var(--ground);
+    padding-right: 12px;
+  }
+  .unit-wrap:focus-within { border-color: var(--caramel); }
+  .unit-wrap input {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    border: 0;
+    background: transparent;
+    font: 600 1.2rem var(--body);
+    color: var(--ink);
+    padding: 10px 12px;
+    outline: none;
+    font-variant-numeric: tabular-nums;
+  }
+  .unit-wrap > span { color: var(--ink-soft); font-weight: 600; }
+  .calc {
+    background: var(--caramel-soft);
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 10px;
+    row-gap: 2px;
+  }
+  .calc b { font-family: var(--display); font-weight: 400; font-size: 2rem; line-height: 1.1; color: var(--caramel); font-variant-numeric: tabular-nums; }
+  .calc small { flex-basis: 100%; color: var(--ink-soft); font-size: .85rem; }
+  .hint { font-size: .88rem; color: var(--ink-soft); }
+  .hint.err { color: var(--caramel); font-weight: 600; }
+  .reset {
+    align-self: flex-start;
+    background: transparent;
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font: 600 .9rem var(--body);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .scaled {
+    background: var(--leaf-soft);
+    border-radius: 10px;
+    padding: 9px 12px;
+    font-size: .92rem;
+    font-weight: 600;
+  }
+  .qty, .qty-inline { border-radius: 6px; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .flash { animation: flash 1.1s ease-out; }
+    @keyframes flash {
+      0% { background-color: var(--banana); color: #3A2317; box-shadow: 0 0 0 4px var(--banana); }
+      100% { background-color: transparent; box-shadow: 0 0 0 4px transparent; }
+    }
+  }
+
+  @media (min-width: 560px) {
+    .wrap { gap: 56px; padding-block: 32px 72px; }
+    .ingr label { grid-template-columns: 26px 1fr auto; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .slices svg { animation: bob 5s ease-in-out infinite; }
+    .slices svg:nth-child(2n) { animation-delay: -1.2s; }
+    .slices svg:nth-child(3n) { animation-delay: -2.6s; }
+    @keyframes bob { 50% { translate: 0 -3px; } }
+  }
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="slice" viewBox="0 0 44 44">
+      <circle cx="22" cy="22" r="20" fill="#F4D35E" stroke="#D9A93A" stroke-width="1.5"/>
+      <circle cx="22" cy="22" r="13" fill="#FBEFB8"/>
+      <circle cx="22" cy="15.5" r="1.6" fill="#6B4A1E"/>
+      <circle cx="27.6" cy="25.2" r="1.6" fill="#6B4A1E"/>
+      <circle cx="16.4" cy="25.2" r="1.6" fill="#6B4A1E"/>
+      <circle cx="22" cy="22" r="1.1" fill="#C9A24C"/>
+    </symbol>
+  </defs>
+</svg>
+
+<main class="wrap">
+
+  <header class="hero">
+    <div class="slices" aria-hidden="true" id="slices"></div>
+    <div class="section-head">
+      <p class="eyebrow">Receita de família</p>
+      <h1>Cuca de Banana <span>Cremosa</span></h1>
+    </div>
+    <p class="note">Molhadinha por dentro, crocante por cima e muito perfumada.</p>
+    <div class="facts" role="list">
+      <div class="fact" role="listitem"><b>180 °C</b><small>forno</small></div>
+      <div class="fact" role="listitem"><b>40–50</b><small>minutos</small></div>
+      <div class="fact" role="listitem"><b id="fact-pan">31 cm</b><small id="fact-pan-sub">forma redonda</small></div>
+    </div>
+    <button class="awake" id="awake" type="button" aria-pressed="false" hidden>
+      <span class="dot" aria-hidden="true"></span>
+      <span id="awake-label">Manter a tela acesa enquanto cozinho</span>
+    </button>
+    <p class="awake-msg" id="awake-msg" hidden></p>
+  </header>
+
+  <section class="section" aria-labelledby="t-layers">
+    <div class="section-head">
+      <p class="eyebrow">Por dentro da forma</p>
+      <h2 id="t-layers">Quatro camadas</h2>
+      <p class="lead">Cada camada tem uma função. Juntas, dão a textura da cuca.</p>
+    </div>
+    <div class="layers">
+      <div class="layer-band b-farofa"></div>
+      <div class="layer-text"><strong>Farofa</strong><span>Crocante. Faz contraste com o creme.</span></div>
+      <div class="layer-band b-creme"></div>
+      <div class="layer-text"><strong>Creme</strong><span>Tipo custard. É o segredo da cremosidade.</span></div>
+      <div class="layer-band b-banana"></div>
+      <div class="layer-text"><strong>Banana</strong><span>Bem madura. Dá doçura natural e umidade.</span></div>
+      <div class="layer-band b-massa"></div>
+      <div class="layer-text"><strong>Massa</strong><span>Levemente amanteigada. Dá a estrutura.</span></div>
+      <p class="pan-label">fundo da forma</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="t-totals">
+    <div class="section-head">
+      <p class="eyebrow">Antes de começar</p>
+      <h2 id="t-totals">Separe tudo</h2>
+    </div>
+
+    <div class="pan">
+      <div class="pan-head">
+        <svg class="pan-icon" viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="30" rx="20" ry="8" fill="var(--caramel-soft)" stroke="var(--caramel)" stroke-width="2"/><path d="M4 22v8M44 22v8" stroke="var(--caramel)" stroke-width="2"/><ellipse cx="24" cy="22" rx="20" ry="8" fill="var(--paper)" stroke="var(--caramel)" stroke-width="2"/></svg>
+        <div>
+          <p class="eyebrow">Forma recomendada</p>
+          <p class="pan-main">Redonda de 31 cm de diâmetro</p>
+          <p class="pan-sub">Ou uma retangular de cerca de 30&nbsp;×&nbsp;25&nbsp;cm.</p>
+        </div>
+      </div>
+      <p class="pan-info">A cuca pronta ocupa cerca de 3.400 cm³ e fica com uns 4,5 cm de altura.</p>
+      <button class="adjust" id="adjust" type="button" aria-expanded="false" aria-controls="panel">Ajustar a receita para outra forma</button>
+
+      <div class="panel" id="panel" hidden>
+        <fieldset class="shape">
+          <legend class="sr">Formato da forma</legend>
+          <label><input type="radio" name="shape" id="shape-round" value="round" checked><span>Redonda</span></label>
+          <label><input type="radio" name="shape" id="shape-rect" value="rect"><span>Retangular</span></label>
+        </fieldset>
+        <div class="dims" id="dims-round">
+          <label for="in-d">Diâmetro
+            <span class="unit-wrap"><input id="in-d" type="text" inputmode="decimal" autocomplete="off" value="31"><span>cm</span></span>
+          </label>
+        </div>
+        <div class="dims" id="dims-rect" hidden>
+          <label for="in-l">Comprimento
+            <span class="unit-wrap"><input id="in-l" type="text" inputmode="decimal" autocomplete="off" value="30"><span>cm</span></span>
+          </label>
+          <label for="in-w">Largura
+            <span class="unit-wrap"><input id="in-w" type="text" inputmode="decimal" autocomplete="off" value="25"><span>cm</span></span>
+          </label>
+        </div>
+        <p class="hint">Meça a forma por dentro.</p>
+        <div class="calc" aria-live="polite">
+          <b id="calc-pct">100%</b><span>da receita original</span>
+          <small id="calc-detail">Área de 755 cm² · cuca pronta com cerca de 3.400 cm³</small>
+        </div>
+        <p class="hint err" id="calc-err" hidden>Digite uma medida entre 8 e 60 cm.</p>
+        <p class="hint">A cuca fica com a mesma altura. Por isso, o tempo de forno muda pouco. Confira o ponto: topo dourado e centro ainda levemente úmido.</p>
+        <button class="reset" id="reset" type="button">Voltar para a forma de 31 cm</button>
+      </div>
+    </div>
+
+    <p class="scaled" data-scaled hidden></p>
+    <p class="lead">Quantidade total da receita inteira. As medidas de cada etapa estão logo abaixo.</p>
+    <ul class="totals">
+      <li><span>Farinha de trigo</span><span class="qty" data-t="farinha">300 g</span></li>
+      <li><span>Açúcar</span><span class="qty" data-t="acucar">220 g</span></li>
+      <li><span>Manteiga<span class="sub" data-t="manteigaSub">80 g em ponto de pomada e 80 g gelada</span></span><span class="qty" data-t="manteiga">160 g</span></li>
+      <li><span>Leite</span><span class="qty" data-t="leite">320 ml</span></li>
+      <li><span>Ovos<span class="sub" data-t="ovosSub">2 inteiros na massa e 2 gemas no creme</span></span><span class="qty" data-t="ovos">4</span></li>
+      <li><span>Bananas bem maduras</span><span class="qty" data-t="banana">5 (≈ 500 g)</span></li>
+      <li><span>Leite condensado</span><span class="qty" data-t="lc">1 lata (395 g)</span></li>
+      <li><span>Amido de milho</span><span class="qty" data-t="amido">10 g</span></li>
+      <li><span>Fermento químico em pó</span><span class="qty" data-t="ferm">10 g</span></li>
+      <li><span>Canela em pó</span><span class="qty" data-t="canela">4 g</span></li>
+      <li><span>Essência de baunilha</span><span class="qty" data-t="baun">10 ml</span></li>
+      <li><span>Limão</span><span class="qty" data-t="limao">10 ml de suco</span></li>
+      <li><span>Sal</span><span class="qty" data-t="sal">1 pitada</span></li>
+    </ul>
+  </section>
+
+  <section class="section" aria-labelledby="t-steps">
+    <div class="section-head">
+      <p class="eyebrow">Modo de preparo</p>
+      <h2 id="t-steps">Passo a passo</h2>
+    </div>
+    <p class="scaled" data-scaled hidden></p>
+
+    <div class="steps">
+
+      <article class="step">
+        <div class="step-head">
+          <span class="num" aria-hidden="true">1</span>
+          <div><p class="eyebrow">Faça primeiro</p><h3>Creme</h3></div>
+        </div>
+        <div class="step-body">
+          <div class="ingr">
+            <label><input type="checkbox" id="c1"><span class="name">Leite condensado</span><span class="qty">1 lata<small>395 g</small></span></label>
+            <label><input type="checkbox" id="c2"><span class="name">Leite</span><span class="qty">200 ml</span></label>
+            <label><input type="checkbox" id="c3"><span class="name">Gemas</span><span class="qty">2<small>≈ 40 g</small></span></label>
+            <label><input type="checkbox" id="c4"><span class="name">Amido de milho</span><span class="qty">1 colher de sopa<small>10 g</small></span></label>
+            <label><input type="checkbox" id="c5"><span class="name">Essência de baunilha</span><span class="qty">1 colher de chá<small>5 ml</small></span></label>
+          </div>
+          <p class="how-title">Como fazer</p>
+          <ol class="how">
+            <li>Misture tudo ainda frio.</li>
+            <li>Leve ao fogo baixo, mexendo sempre.</li>
+            <li>Quando engrossar como um mingau firme, desligue.</li>
+            <li>Cubra com plástico encostado no creme e reserve.</li>
+          </ol>
+          <div class="tip"><p class="note"><b>Ponto certo:</b> espesso, mas ainda fluido. Não deixe virar um bloco.</p></div>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step-head">
+          <span class="num" aria-hidden="true">2</span>
+          <div><p class="eyebrow">Recheio</p><h3>Banana</h3></div>
+        </div>
+        <div class="step-body">
+          <div class="ingr">
+            <label><input type="checkbox" id="b1"><span class="name">Bananas maduras</span><span class="qty">5<small>≈ 500 g</small></span></label>
+            <label><input type="checkbox" id="b2"><span class="name">Açúcar</span><span class="qty">1½ colher de sopa<small>20 g</small></span></label>
+            <label><input type="checkbox" id="b3"><span class="name">Canela em pó</span><span class="qty">¾ de colher de chá<small>2 g</small></span></label>
+            <label><input type="checkbox" id="b4"><span class="name">Suco de limão</span><span class="qty">2 colheres de chá<small>10 ml</small></span></label>
+          </div>
+          <p class="how-title">Como fazer</p>
+          <ol class="how">
+            <li>Corte as bananas em rodelas ou tiras.</li>
+            <li>Misture com o açúcar, a canela e o limão.</li>
+          </ol>
+          <div class="tip"><p class="note">O limão e a canela realçam o sabor e evitam que a cuca fique enjoativa.</p></div>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step-head">
+          <span class="num" aria-hidden="true">3</span>
+          <div><p class="eyebrow">Streusel</p><h3>Farofa</h3></div>
+        </div>
+        <div class="step-body">
+          <div class="ingr">
+            <label><input type="checkbox" id="f1"><span class="name">Farinha de trigo</span><span class="qty">120 g</span></label>
+            <label><input type="checkbox" id="f2"><span class="name">Açúcar</span><span class="qty">80 g</span></label>
+            <label><input type="checkbox" id="f3"><span class="name">Manteiga gelada</span><span class="qty">80 g</span></label>
+            <label><input type="checkbox" id="f4"><span class="name">Canela em pó</span><span class="qty">¾ de colher de chá<small>2 g</small></span></label>
+          </div>
+          <p class="how-title">Como fazer</p>
+          <ol class="how">
+            <li>Misture tudo com a ponta dos dedos.</li>
+            <li>Pare quando virar uma areia grossa.</li>
+          </ol>
+          <div class="tip"><p class="note">Não trabalhe demais. A ideia é ficar com pedaços.</p></div>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step-head">
+          <span class="num" aria-hidden="true">4</span>
+          <div><p class="eyebrow">Base</p><h3>Massa</h3></div>
+        </div>
+        <div class="step-body">
+          <div class="ingr">
+            <label><input type="checkbox" id="m1"><span class="name">Farinha de trigo</span><span class="qty">180 g</span></label>
+            <label><input type="checkbox" id="m2"><span class="name">Açúcar</span><span class="qty">120 g</span></label>
+            <label><input type="checkbox" id="m3"><span class="name">Manteiga<em>em ponto de pomada</em></span><span class="qty">80 g</span></label>
+            <label><input type="checkbox" id="m4"><span class="name">Ovos</span><span class="qty">2<small>≈ 100 g</small></span></label>
+            <label><input type="checkbox" id="m5"><span class="name">Leite</span><span class="qty">120 ml</span></label>
+            <label><input type="checkbox" id="m6"><span class="name">Fermento químico em pó</span><span class="qty">2 colheres de chá<small>10 g</small></span></label>
+            <label><input type="checkbox" id="m7"><span class="name">Sal</span><span class="qty">1 pitada<small>≈ 1 g</small></span></label>
+            <label><input type="checkbox" id="m8"><span class="name">Essência de baunilha<em>opcional, mas recomendada</em></span><span class="qty">1 colher de chá<small>5 ml</small></span></label>
+          </div>
+          <p class="how-title">Como fazer</p>
+          <ol class="how">
+            <li>Bata a manteiga com o açúcar até clarear.</li>
+            <li>Junte os ovos, um de cada vez.</li>
+            <li>Acrescente o leite e a baunilha.</li>
+            <li>Por último, junte a farinha, o sal e o fermento. Misture com delicadeza.</li>
+          </ol>
+          <div class="tip"><p class="note">Muita gente erra aqui. Não bata demais depois da farinha.</p></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="t-assembly">
+    <div class="section-head">
+      <p class="eyebrow">Montagem e forno</p>
+      <h2 id="t-assembly">Na forma, nesta ordem</h2>
+    </div>
+    <div class="assembly">
+      <ol class="how">
+        <li>Unte uma forma <span data-pan-text>redonda de 31 cm</span>.</li>
+        <li>Coloque toda a massa.</li>
+        <li>Espalhe as bananas.</li>
+        <li>Despeje o creme por cima. Ele vai penetrar na massa.</li>
+        <li>Termine com a farofa.</li>
+      </ol>
+      <div class="tip"><p class="note">Essa ordem é o que deixa a cuca molhadinha.</p></div>
+      <div class="oven">
+        <div><b>180 °C</b><small>forno preaquecido</small></div>
+        <div><b>40–50</b><small>minutos</small></div>
+      </div>
+      <p class="note" style="text-align:center">Pronta quando o topo estiver dourado e o centro ainda levemente úmido.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="t-extras">
+    <div class="section-head">
+      <p class="eyebrow">Se quiser ir além</p>
+      <h2 id="t-extras">Três ajustes</h2>
+    </div>
+    <div class="extras">
+      <div class="extra">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--caramel-soft)"/><path d="M13 14h14l-2 15a3 3 0 0 1-3 2.5h-4A3 3 0 0 1 15 29z" fill="none" stroke="var(--caramel)" stroke-width="2" stroke-linejoin="round"/><path d="M13 14c2-3 12-3 14 0" fill="none" stroke="var(--caramel)" stroke-width="2"/></svg>
+        <div><strong>Mais maciez</strong><p>Troque <span class="qty-inline" data-i="creme">2 colheres de sopa (30 ml)</span> do leite por creme de leite. A cuca fica mais macia e mais rica.</p></div>
+      </div>
+      <div class="extra">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--caramel-soft)"/><ellipse cx="20" cy="21" rx="8" ry="9.5" fill="none" stroke="var(--caramel)" stroke-width="2"/><path d="M17 16c2 2 2 8 0 10M23 16c-2 2-2 8 0 10" fill="none" stroke="var(--caramel)" stroke-width="1.6"/></svg>
+        <div><strong>Mais aroma</strong><p>Coloque <span class="qty-inline" data-i="noz">½ colher de chá (1 g)</span> de noz-moscada no creme.</p></div>
+      </div>
+      <div class="extra">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--caramel-soft)"/><path d="M11 13c1 10 8 16 18 15" fill="none" stroke="var(--caramel)" stroke-width="5" stroke-linecap="round"/><circle cx="18" cy="21" r="1.2" fill="var(--seed)"/><circle cx="23" cy="25" r="1.2" fill="var(--seed)"/><circle cx="14" cy="17" r="1.2" fill="var(--seed)"/></svg>
+        <div><strong>Banana ideal</strong><p>Use banana bem madura, quase preta. O sabor fica muito mais forte sem precisar de mais açúcar.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="t-cautions">
+    <div class="section-head">
+      <p class="eyebrow">Cuidados</p>
+      <h2 id="t-cautions">O que pode dar errado</h2>
+    </div>
+    <div class="cautions">
+      <div class="caution">
+        <strong>Massa crua no centro</strong>
+        <div class="tags"><span class="tag">chance média</span><span class="tag high">impacto alto</span></div>
+        <p>Não exagere no creme e respeite o tempo de forno.</p>
+      </div>
+      <div class="caution">
+        <strong>Ficar seca</strong>
+        <div class="tags"><span class="tag">chance baixa</span><span class="tag high">impacto alto</span></div>
+        <p>Não economize no creme.</p>
+      </div>
+      <div class="caution">
+        <strong>Doce demais</strong>
+        <div class="tags"><span class="tag">chance média</span><span class="tag">impacto médio</span></div>
+        <p>O limão e a canela equilibram o doce.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="result" aria-labelledby="t-result">
+    <div class="section-head">
+      <p class="eyebrow">Resultado</p>
+      <h2 id="t-result">Como ela fica</h2>
+    </div>
+    <ul>
+      <li>Base firme, mas úmida.</li>
+      <li>Meio cremoso, quase um pudim leve.</li>
+      <li>Topo crocante.</li>
+      <li>Aroma forte de banana caramelizada e baunilha.</li>
+    </ul>
+    <div class="signoff">
+      <svg aria-hidden="true"><use href="#slice"/></svg>
+      <p class="note">Bom forno!</p>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  // Ajuste da receita ao tamanho da forma
+  (function () {
+    var BASE_AREA = Math.PI * 15.5 * 15.5;   // forma redonda de 31 cm
+    var HEIGHT = 3400 / BASE_AREA;            // altura da cuca pronta, ≈ 4,5 cm
+    var MIN = 8, MAX = 60;
+    var KEY = 'cuca-banana-forma';
+
+    function nf(x, d) { return x.toLocaleString('pt-BR', { maximumFractionDigits: d === undefined ? 1 : d }); }
+    function roundG(x) {
+      if (x < 10) return Math.round(x * 2) / 2;
+      if (x < 50) return Math.round(x);
+      return Math.round(x / 5) * 5;
+    }
+    function g(x, u) { return nf(roundG(x)) + ' ' + (u || 'g'); }
+    var FR = { '0': '', '0.25': '¼', '0.5': '½', '0.75': '¾' };
+    function frac(x, step) {
+      var r = Math.round(x / step) * step;
+      if (r < step) r = step;
+      var w = Math.floor(r + 1e-9);
+      var f = String(+(r - w).toFixed(2));
+      return { v: r, t: (w ? String(w) : '') + FR[f] };
+    }
+    function spoon(amount, per, unit) {
+      var tsp = amount / per * (unit === 'sopa' ? 3 : 1);
+      if (tsp < 0.2) return '1 pitada';
+      var r, name;
+      if (frac(tsp, 0.25).v >= 3) { r = frac(tsp / 3, 0.5); name = 'sopa'; }
+      else { r = frac(tsp, 0.25); name = 'chá'; }
+      if (r.v === 0.5) return '½ colher de ' + name;
+      if (r.v < 1) return r.t + ' de colher de ' + name;
+      if (r.v < 2) return r.t + ' colher de ' + name;
+      return r.t + ' colheres de ' + name;
+    }
+    function cans(f) {
+      var r = frac(f, 0.25);
+      if (r.v === 0.5) return '½ lata';
+      if (r.v < 1) return r.t + ' de lata';
+      if (r.v < 2) return r.t + ' lata';
+      return r.t + ' latas';
+    }
+    function pinches(v) {
+      var n = Math.max(1, Math.round(v));
+      return n === 1 ? '1 pitada' : n + ' pitadas';
+    }
+    function isOne(f) { return Math.abs(f - 1) < 0.01; }
+
+    // Ingredientes de cada etapa, na receita base (forma de 31 cm)
+    var I = {
+      lc:     { kind: 'can' },
+      leiteC: { kind: 'ml', v: 200 },
+      gemas:  { kind: 'count', n: 2, per: 20 },
+      amido:  { kind: 'spoon', v: 10, per: 10, unit: 'sopa', u: 'g' },
+      baunC:  { kind: 'spoon', v: 5, per: 5, unit: 'cha', u: 'ml' },
+      banana: { kind: 'count', n: 5, per: 100 },
+      acB:    { kind: 'spoon', v: 20, per: 12.5, unit: 'sopa', u: 'g' },
+      canB:   { kind: 'spoon', v: 2, per: 2.6, unit: 'cha', u: 'g' },
+      limao:  { kind: 'spoon', v: 10, per: 5, unit: 'cha', u: 'ml' },
+      farF:   { kind: 'g', v: 120 },
+      acF:    { kind: 'g', v: 80 },
+      manF:   { kind: 'g', v: 80 },
+      canF:   { kind: 'spoon', v: 2, per: 2.6, unit: 'cha', u: 'g' },
+      farM:   { kind: 'g', v: 180 },
+      acM:    { kind: 'g', v: 120 },
+      manM:   { kind: 'g', v: 80 },
+      ovos:   { kind: 'count', n: 2, per: 50 },
+      leiteM: { kind: 'ml', v: 120 },
+      ferm:   { kind: 'spoon', v: 10, per: 5, unit: 'cha', u: 'g' },
+      sal:    { kind: 'pinch', v: 1 },
+      baunM:  { kind: 'spoon', v: 5, per: 5, unit: 'cha', u: 'ml' },
+      creme:  { kind: 'spoon', v: 30, per: 15, unit: 'sopa', u: 'ml' },
+      noz:    { kind: 'spoon', v: 1, per: 2, unit: 'cha', u: 'g' }
+    };
+    var INPUT_TO_KEY = {
+      c1: 'lc', c2: 'leiteC', c3: 'gemas', c4: 'amido', c5: 'baunC',
+      b1: 'banana', b2: 'acB', b3: 'canB', b4: 'limao',
+      f1: 'farF', f2: 'acF', f3: 'manF', f4: 'canF',
+      m1: 'farM', m2: 'acM', m3: 'manM', m4: 'ovos', m5: 'leiteM', m6: 'ferm', m7: 'sal', m8: 'baunM'
+    };
+
+    function measure(k, f) {
+      var it = I[k];
+      switch (it.kind) {
+        case 'g': return { main: g(it.v * f) };
+        case 'ml': return { main: g(it.v * f, 'ml') };
+        case 'count': return { main: frac(it.n * f, 0.5).t, sub: '≈ ' + g(it.n * it.per * f) };
+        case 'can': return isOne(f) ? { main: '1 lata', sub: '395 g' } : { main: g(395 * f), sub: '≈ ' + cans(f) };
+        case 'spoon': return { main: spoon(it.v * f, it.per, it.unit), sub: g(it.v * f, it.u) };
+        case 'pinch': return { main: pinches(it.v * f), sub: '≈ ' + g(it.v * f) };
+      }
+    }
+    function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+
+    function totals(f) {
+      var ov = frac(2 * f, 0.5), gm = frac(2 * f, 0.5);
+      var eggsTotal = frac(ov.v + gm.v, 0.5).t;
+      function sum() { var s = 0; for (var i = 0; i < arguments.length; i++) s += roundG(arguments[i] * f); return s; }
+      return {
+        farinha: nf(sum(120, 180)) + ' g',
+        acucar: nf(sum(120, 20, 80)) + ' g',
+        manteiga: nf(sum(80, 80)) + ' g',
+        manteigaSub: g(80 * f) + ' em ponto de pomada e ' + g(80 * f) + ' gelada',
+        leite: nf(sum(120, 200)) + ' ml',
+        ovos: eggsTotal,
+        ovosSub: ov.t + (ov.v > 1 ? ' inteiros' : ' inteiro') + ' na massa e ' + gm.t + (gm.v > 1 ? ' gemas' : ' gema') + ' no creme',
+        banana: frac(5 * f, 0.5).t + ' (≈ ' + g(500 * f) + ')',
+        lc: isOne(f) ? '1 lata (395 g)' : g(395 * f) + ' (≈ ' + cans(f) + ')',
+        amido: g(10 * f),
+        ferm: g(10 * f),
+        canela: nf(sum(2, 2)) + ' g',
+        baun: nf(sum(5, 5)) + ' ml',
+        limao: g(10 * f, 'ml') + ' de suco',
+        sal: pinches(f)
+      };
+    }
+
+    var state = { shape: 'round', d: 31, l: 30, w: 25 };
+    try {
+      var s = JSON.parse(localStorage.getItem(KEY) || 'null');
+      if (s && (s.shape === 'round' || s.shape === 'rect')) {
+        ['d', 'l', 'w'].forEach(function (k) { if (typeof s[k] === 'number' && s[k] >= MIN && s[k] <= MAX) state[k] = s[k]; });
+        state.shape = s.shape;
+      }
+    } catch (e) {}
+
+    function area(st) { return st.shape === 'round' ? Math.PI * Math.pow(st.d / 2, 2) : st.l * st.w; }
+    function panText(st) {
+      return st.shape === 'round'
+        ? 'redonda de ' + nf(st.d) + ' cm'
+        : 'retangular de ' + nf(st.l) + ' × ' + nf(st.w) + ' cm';
+    }
+    function isDefault(st) { return st.shape === 'round' && st.d === 31; }
+
+    function setHTML(el, html, animate) {
+      if (el.innerHTML === html) return;
+      el.innerHTML = html;
+      if (animate) {
+        el.classList.remove('flash');
+        void el.offsetWidth;
+        el.classList.add('flash');
+      }
+    }
+
+    function render(animate) {
+      var a = area(state);
+      var f = a / BASE_AREA;
+
+      // Etapas
+      Object.keys(INPUT_TO_KEY).forEach(function (id) {
+        var input = document.getElementById(id);
+        if (!input) return;
+        var q = input.parentNode.querySelector('.qty');
+        var m = measure(INPUT_TO_KEY[id], f);
+        setHTML(q, esc(m.main) + (m.sub ? '<small>' + esc(m.sub) + '</small>' : ''), animate);
+      });
+      // Totais
+      var t = totals(f);
+      document.querySelectorAll('[data-t]').forEach(function (el) {
+        setHTML(el, esc(t[el.getAttribute('data-t')]), animate);
+      });
+      // Menções no texto
+      document.querySelectorAll('[data-i]').forEach(function (el) {
+        var m = measure(el.getAttribute('data-i'), f);
+        setHTML(el, esc(m.main + ' (' + m.sub + ')'), animate);
+      });
+      // Forma
+      var pt = panText(state);
+      document.querySelectorAll('[data-pan-text]').forEach(function (el) { setHTML(el, esc(pt), animate); });
+      var fp = document.getElementById('fact-pan');
+      var fps = document.getElementById('fact-pan-sub');
+      if (state.shape === 'round') { fp.textContent = nf(state.d) + ' cm'; fps.textContent = 'forma redonda'; }
+      else { fp.textContent = nf(state.l) + '×' + nf(state.w); fps.textContent = 'cm, retangular'; }
+
+      var pct = Math.round(f * 100);
+      document.getElementById('calc-pct').textContent = pct + '%';
+      document.getElementById('calc-detail').textContent =
+        'Área de ' + nf(Math.round(a), 0) + ' cm² · cuca pronta com cerca de ' + nf(Math.round(a * HEIGHT / 10) * 10, 0) + ' cm³';
+
+      var flagText = 'Quantidades ajustadas para forma ' + pt + ' (' + pct + '% da receita original).';
+      document.querySelectorAll('[data-scaled]').forEach(function (el) {
+        el.hidden = isDefault(state);
+        el.textContent = flagText;
+      });
+
+      try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+    }
+
+    // Controles
+    var btn = document.getElementById('adjust');
+    var panel = document.getElementById('panel');
+    var rRound = document.getElementById('shape-round');
+    var rRect = document.getElementById('shape-rect');
+    var dRound = document.getElementById('dims-round');
+    var dRect = document.getElementById('dims-rect');
+    var inD = document.getElementById('in-d');
+    var inL = document.getElementById('in-l');
+    var inW = document.getElementById('in-w');
+    var err = document.getElementById('calc-err');
+
+    function syncControls() {
+      rRound.checked = state.shape === 'round';
+      rRect.checked = state.shape === 'rect';
+      dRound.hidden = state.shape !== 'round';
+      dRect.hidden = state.shape !== 'rect';
+      inD.value = nf(state.d);
+      inL.value = nf(state.l);
+      inW.value = nf(state.w);
+      err.hidden = true;
+    }
+    function parse(v) {
+      var x = parseFloat(String(v).replace(/\s/g, '').replace(',', '.'));
+      return isFinite(x) ? x : NaN;
+    }
+    function fromInputs() {
+      var vals = state.shape === 'round' ? [parse(inD.value)] : [parse(inL.value), parse(inW.value)];
+      var ok = vals.every(function (x) { return x >= MIN && x <= MAX; });
+      err.hidden = ok;
+      if (!ok) return;
+      if (state.shape === 'round') state.d = vals[0];
+      else { state.l = vals[0]; state.w = vals[1]; }
+      render(true);
+    }
+
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') !== 'true';
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.hidden = !open;
+    });
+    [rRound, rRect].forEach(function (r) {
+      r.addEventListener('change', function () {
+        state.shape = rRect.checked ? 'rect' : 'round';
+        syncControls();
+        render(true);
+      });
+    });
+    [inD, inL, inW].forEach(function (inp) {
+      inp.addEventListener('input', fromInputs);
+      inp.addEventListener('blur', function () { if (err.hidden) syncControls(); });
+    });
+    document.getElementById('reset').addEventListener('click', function () {
+      state = { shape: 'round', d: 31, l: 30, w: 25 };
+      syncControls();
+      render(true);
+    });
+
+    syncControls();
+    render(false);
+  })();
+</script>
+
+<script>
+  (function () {
+    // Faixa de rodelas de banana
+    var strip = document.getElementById('slices');
+    var html = '';
+    for (var i = 0; i < 16; i++) html += '<svg><use href="#slice"/></svg>';
+    strip.innerHTML = html;
+
+    // Ingredientes marcados (só neste aparelho)
+    var KEY = 'cuca-banana-marcados';
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { saved = {}; }
+    var boxes = document.querySelectorAll('.ingr input[type=checkbox]');
+    boxes.forEach(function (box) {
+      if (saved[box.id]) box.checked = true;
+      box.addEventListener('change', function () {
+        saved[box.id] = box.checked;
+        try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+      });
+    });
+
+    // Manter a tela acesa
+    var btn = document.getElementById('awake');
+    var label = document.getElementById('awake-label');
+    var msg = document.getElementById('awake-msg');
+    var lock = null;
+    var wanted = false;
+    if (!('wakeLock' in navigator)) return;
+    btn.hidden = false;
+
+    function setOn(on) {
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      label.textContent = on ? 'Tela acesa. Toque para desligar' : 'Manter a tela acesa enquanto cozinho';
+    }
+    function request() {
+      return navigator.wakeLock.request('screen').then(function (l) {
+        lock = l;
+        msg.hidden = true;
+        setOn(true);
+        l.addEventListener('release', function () { lock = null; if (!wanted) setOn(false); });
+      }).catch(function () {
+        wanted = false;
+        setOn(false);
+        msg.textContent = 'Este aparelho não deixou manter a tela acesa por aqui.';
+        msg.hidden = false;
+      });
+    }
+    btn.addEventListener('click', function () {
+      if (wanted) {
+        wanted = false;
+        if (lock) lock.release();
+        setOn(false);
+      } else {
+        wanted = true;
+        request();
+      }
+    });
+    document.addEventListener('visibilitychange', function () {
+      if (wanted && !lock && document.visibilityState === 'visible') request();
+    });
+  })();
+</script>
+
+</body>
+</html>
