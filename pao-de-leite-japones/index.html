@@ -1,0 +1,977 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pão de Leite Japonês</title>
+<meta name="description" content="Pão de leite japonês (Hokkaido) com tangzhong. Receita com ajuste automático para o tamanho da sua forma.">
+<meta property="og:title" content="Pão de Leite Japonês">
+<meta property="og:description" content="Macio, elástico e com cheiro de leite e manteiga.">
+<meta name="theme-color" content="#EDF2F5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Kalam:wght@400;700&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    --ground: #EDF2F5;
+    --paper: #FBFDFE;
+    --ink: #22303A;
+    --ink-soft: #586773;
+    --line: #D3DFE6;
+    --crust: #A9621F;
+    --crust-soft: #F4E4CF;
+    --milk: #2E6D9B;
+    --milk-soft: #DCEAF4;
+    --crumb: #FFF6E4;
+    --shadow: 0 1px 0 rgba(34, 48, 58, .05), 0 10px 26px -14px rgba(34, 48, 58, .28);
+    --flash: #FFE08A;
+    --display: "Young Serif", Georgia, "Times New Roman", serif;
+    --body: "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --hand: "Kalam", "Bradley Hand", "Segoe Print", cursive;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --ground: #131A20;
+      --paper: #1B242C;
+      --ink: #EAF0F4;
+      --ink-soft: #A7B5C0;
+      --line: #2E3B46;
+      --crust: #E6A55E;
+      --crust-soft: #3A2B1C;
+      --milk: #88BADF;
+      --milk-soft: #1F3444;
+      --crumb: #F3E6CC;
+      --shadow: 0 1px 0 rgba(0,0,0,.3), 0 10px 28px -14px rgba(0,0,0,.7);
+    }
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding-inline: 18px;
+    padding-block: 12px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+  }
+  h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; text-wrap: balance; line-height: 1.12; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.3rem; }
+  p { margin: 0; }
+  ul, ol { margin: 0; padding: 0; list-style: none; }
+  .eyebrow { font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--milk); }
+  .note { font-family: var(--hand); font-size: 1.12rem; line-height: 1.35; color: var(--crust); }
+  .section { display: flex; flex-direction: column; gap: 18px; }
+  .section-head { display: flex; flex-direction: column; gap: 6px; }
+  .lead { color: var(--ink-soft); }
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+  }
+
+  /* ---------- Topo ---------- */
+  .hero { display: flex; flex-direction: column; gap: 18px; padding-top: 8px; }
+  .band {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    height: 50px;
+    overflow: hidden;
+    margin-inline: -18px;
+    padding-inline: 12px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+  .band svg { flex: 0 0 auto; }
+  .band .slice { width: 40px; height: 44px; }
+  .band .drop { width: 12px; height: 16px; margin-bottom: 14px; }
+  .hero h1 { font-size: clamp(2.5rem, 11vw, 3.5rem); line-height: 1.02; letter-spacing: -.01em; }
+  .hero h1 span { color: var(--crust); display: block; }
+  .hero .note { font-size: 1.3rem; }
+  .meta { font-size: .9rem; color: var(--ink-soft); }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .fact { padding: 12px 8px; text-align: center; display: flex; flex-direction: column; gap: 2px; }
+  .fact + .fact { border-left: 1px dashed var(--line); }
+  .fact b { font-family: var(--display); font-weight: 400; font-size: clamp(1.1rem, 5.4vw, 1.35rem); line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .fact small { font-size: .78rem; color: var(--ink-soft); line-height: 1.3; }
+  .awake {
+    align-self: flex-start;
+    display: inline-flex; align-items: center; gap: 10px;
+    font: 600 .95rem var(--body);
+    color: var(--ink);
+    background: transparent;
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    padding: 10px 16px 10px 12px;
+    cursor: pointer;
+  }
+  .awake .dot { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--ink-soft); }
+  .awake[aria-pressed="true"] { border-color: var(--milk); background: var(--milk-soft); }
+  .awake[aria-pressed="true"] .dot { border-color: var(--milk); background: var(--milk); }
+  .awake-msg { font-size: .85rem; color: var(--ink-soft); }
+
+  /* ---------- Linha do tempo ---------- */
+  .timeline { padding: 8px 16px; }
+  .tl-row {
+    display: grid;
+    grid-template-columns: 7.2em 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding-block: 10px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .tl-row:last-child { border-bottom: 0; }
+  .tl-name { font-weight: 600; font-size: .95rem; line-height: 1.25; }
+  .tl-track { position: relative; height: 12px; }
+  .tl-bar {
+    position: absolute; left: 0; top: 0; bottom: 0;
+    border-radius: 6px;
+    background: var(--milk-soft);
+  }
+  .tl-bar i {
+    position: absolute; left: 0; top: 0; bottom: 0;
+    border-radius: 6px;
+    background: var(--milk);
+  }
+  .tl-row.wait .tl-bar { background: var(--crust-soft); }
+  .tl-row.wait .tl-bar i { background: var(--crust); }
+  .tl-quick { display: block; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--milk); }
+  .tl-time { font-size: .85rem; color: var(--ink-soft); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: .82rem; color: var(--ink-soft); }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .legend i { width: 14px; height: 8px; border-radius: 4px; display: inline-block; }
+
+  /* ---------- Forma e ajuste ---------- */
+  .pan { padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+  .pan-head { display: grid; grid-template-columns: 52px 1fr; gap: 14px; align-items: center; }
+  .pan-icon { width: 52px; height: 44px; }
+  .pan-main { font-family: var(--display); font-size: 1.3rem; line-height: 1.2; }
+  .pan-sub { color: var(--ink-soft); font-size: .95rem; }
+  .adjust {
+    display: inline-flex; justify-content: center; align-items: center; gap: 10px;
+    font: 700 1rem var(--body);
+    color: #fff;
+    background: var(--crust);
+    border: 0;
+    border-radius: 999px;
+    padding: 13px 20px;
+    cursor: pointer;
+  }
+  @media (prefers-color-scheme: dark) { .adjust { color: #1B242C; } }
+  .adjust::after {
+    content: ""; width: 8px; height: 8px;
+    border: solid currentColor; border-width: 0 2px 2px 0;
+    transform: translateY(-2px) rotate(45deg);
+    transition: transform .2s;
+  }
+  .adjust[aria-expanded="true"]::after { transform: translateY(2px) rotate(-135deg); }
+  .adjust:focus-visible, .reset:focus-visible, .awake:focus-visible, .step-btn:focus-visible { outline: 3px solid var(--milk); outline-offset: 3px; }
+  .panel { border-top: 1px dashed var(--line); padding-top: 16px; display: flex; flex-direction: column; gap: 14px; }
+  .dims { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .field { display: flex; flex-direction: column; gap: 6px; font-size: .85rem; font-weight: 700; color: var(--ink-soft); min-width: 0; }
+  .unit-wrap {
+    display: flex; align-items: center;
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    background: var(--ground);
+    padding-right: 10px;
+  }
+  .unit-wrap:focus-within { border-color: var(--crust); }
+  .unit-wrap input {
+    flex: 1; min-width: 0; width: 100%;
+    border: 0; background: transparent;
+    font: 600 1.15rem var(--body);
+    color: var(--ink);
+    padding: 10px 10px;
+    outline: none;
+    font-variant-numeric: tabular-nums;
+  }
+  .unit-wrap > span { color: var(--ink-soft); font-weight: 600; font-size: .9rem; }
+  .count-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .count-row .label { font-weight: 700; font-size: .95rem; }
+  .stepper { display: flex; align-items: center; border: 1.5px solid var(--line); border-radius: 999px; background: var(--ground); }
+  .step-btn {
+    width: 44px; height: 44px;
+    border: 0; background: transparent;
+    font: 600 1.4rem var(--body);
+    color: var(--crust);
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  .step-btn:disabled { color: var(--line); cursor: default; }
+  .stepper output { min-width: 2.2em; text-align: center; font: 700 1.2rem var(--body); font-variant-numeric: tabular-nums; }
+  .calc {
+    background: var(--crust-soft);
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex; flex-wrap: wrap; align-items: baseline;
+    column-gap: 10px; row-gap: 2px;
+  }
+  .calc b { font-family: var(--display); font-weight: 400; font-size: 2rem; line-height: 1.1; color: var(--crust); font-variant-numeric: tabular-nums; }
+  .calc small { flex-basis: 100%; color: var(--ink-soft); font-size: .85rem; }
+  .hint { font-size: .88rem; color: var(--ink-soft); }
+  .hint.err { color: var(--crust); font-weight: 600; }
+  .reset {
+    align-self: flex-start;
+    background: transparent;
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font: 600 .9rem var(--body);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .scaled { background: var(--milk-soft); border-radius: 10px; padding: 9px 12px; font-size: .92rem; font-weight: 600; }
+
+  /* ---------- Totais ---------- */
+  .totals { padding: 6px 16px; }
+  .totals li {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+    padding-block: 9px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .totals li:last-child { border-bottom: 0; }
+  .totals .qty { font-variant-numeric: tabular-nums; font-weight: 600; text-align: right; max-width: 55%; }
+  .totals .sub { display: block; font-size: .82rem; color: var(--ink-soft); }
+  .aside { background: var(--milk-soft); border-radius: 12px; padding: 10px 14px; font-size: .92rem; }
+
+  /* ---------- Etapas ---------- */
+  .steps { display: flex; flex-direction: column; gap: 22px; }
+  .step { border-radius: 18px; overflow: hidden; }
+  .step-head {
+    display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 14px;
+    padding: 16px 18px 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .num {
+    width: 44px; height: 44px; border-radius: 50%;
+    display: grid; place-items: center;
+    font-family: var(--display); font-size: 1.35rem;
+    color: var(--paper); background: var(--crust);
+  }
+  .step-head .eyebrow { color: var(--ink-soft); }
+  .step-body { padding: 14px 18px 18px; display: flex; flex-direction: column; gap: 16px; }
+  .ingr { display: flex; flex-direction: column; }
+  .ingr label {
+    display: grid; grid-template-columns: 26px 1fr auto; align-items: start; gap: 10px;
+    padding-block: 9px;
+    border-bottom: 1px dashed var(--line);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .ingr label:last-child { border-bottom: 0; }
+  .ingr input {
+    appearance: none; -webkit-appearance: none;
+    width: 22px; height: 22px; margin: 1px 0 0;
+    border: 2px solid var(--line); border-radius: 6px;
+    background: var(--ground);
+    display: grid; place-items: center;
+    cursor: pointer;
+  }
+  .ingr input::after {
+    content: ""; width: 10px; height: 6px;
+    border: solid var(--paper); border-width: 0 0 2.5px 2.5px;
+    transform: rotate(-45deg) translate(1px, -1px);
+    opacity: 0;
+  }
+  .ingr input:checked { background: var(--milk); border-color: var(--milk); }
+  .ingr input:checked::after { opacity: 1; }
+  .ingr input:focus-visible { outline: 3px solid var(--crust); outline-offset: 2px; }
+  .ingr .name { line-height: 1.35; }
+  .ingr .name em { display: block; font-style: normal; font-size: .82rem; color: var(--ink-soft); }
+  .ingr .qty { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.35; }
+  .ingr .qty small { display: block; font-weight: 500; font-size: .8rem; color: var(--ink-soft); }
+  .ingr label:has(input:checked) .name,
+  .ingr label:has(input:checked) .qty { opacity: .45; text-decoration: line-through; text-decoration-color: var(--ink-soft); }
+  .how-title { font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--milk); }
+  .how { display: flex; flex-direction: column; gap: 10px; counter-reset: how; }
+  .how li { counter-increment: how; display: grid; grid-template-columns: 26px 1fr; gap: 10px; }
+  .how li::before {
+    content: counter(how);
+    font-family: var(--display); color: var(--crust);
+    font-size: 1.05rem; line-height: 1.5; text-align: center;
+  }
+  .dots { display: flex; flex-direction: column; gap: 8px; }
+  .dots li { display: grid; grid-template-columns: 18px 1fr; gap: 8px; }
+  .dots li::before { content: ""; width: 7px; height: 7px; margin: 9px 0 0 5px; border-radius: 50%; background: var(--crust); }
+  .tip { background: var(--crust-soft); border-radius: 12px; padding: 10px 14px; display: flex; flex-direction: column; gap: 6px; }
+  .tip .note { color: var(--ink); }
+  .tip .note b { color: var(--crust); font-weight: 700; }
+  .box { border: 1.5px dashed var(--line); border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+  .box strong { font-family: var(--display); font-weight: 400; font-size: 1.1rem; }
+  .cycle { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cycle span { background: var(--milk-soft); color: var(--ink); font-weight: 600; font-size: .9rem; padding: 4px 10px; border-radius: 999px; }
+  .cycle i { font-style: normal; color: var(--ink-soft); }
+  .fold { width: 100%; max-width: 360px; height: auto; }
+  .fold text { font: 600 11px var(--body); fill: var(--ink-soft); }
+  .poke { display: flex; flex-direction: column; gap: 8px; }
+  .poke li { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: baseline; padding-block: 6px; border-bottom: 1px dashed var(--line); }
+  .poke li:last-child { border-bottom: 0; }
+  .tag { font-size: .74rem; font-weight: 700; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-soft); white-space: nowrap; }
+  .tag.ok { border-color: var(--milk); color: var(--milk); background: var(--milk-soft); }
+  .tag.warn { border-color: var(--crust); color: var(--crust); }
+
+  /* ---------- Forno ---------- */
+  .oven-card { padding: 18px; display: flex; flex-direction: column; gap: 16px; }
+  .oven { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .oven div { border: 2px solid var(--crust); border-radius: 14px; padding: 12px; text-align: center; display: flex; flex-direction: column; gap: 2px; }
+  .oven div.wide { grid-column: 1 / -1; }
+  .oven b { font-family: var(--display); font-weight: 400; font-size: 1.9rem; line-height: 1.05; color: var(--crust); font-variant-numeric: tabular-nums; }
+  .oven small { font-size: .82rem; color: var(--ink-soft); }
+  .done { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  @media (min-width: 520px) { .done { grid-template-columns: 1fr 1fr; } }
+
+  /* ---------- Cuidados ---------- */
+  .keys { display: flex; flex-direction: column; gap: 12px; }
+  .key { padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+  .key strong { font-family: var(--display); font-weight: 400; font-size: 1.12rem; }
+  .key p { color: var(--ink-soft); }
+
+  .result { border-top: 3px double var(--line); padding-top: 26px; display: flex; flex-direction: column; gap: 14px; }
+  .result ul { display: flex; flex-direction: column; gap: 8px; }
+  .result li { display: grid; grid-template-columns: 22px 1fr; gap: 8px; }
+  .result li::before { content: ""; width: 10px; height: 10px; margin-top: 8px; border-radius: 50%; background: var(--crumb); box-shadow: 0 0 0 2px var(--crust); }
+  .signoff { text-align: center; padding-top: 10px; display: flex; flex-direction: column; gap: 4px; align-items: center; }
+  .signoff .note { font-size: 1.4rem; }
+  .signoff svg { width: 40px; height: 44px; }
+
+  .qty, .qty-inline, [data-pan-text], .fact b { border-radius: 6px; }
+  @media (min-width: 560px) { .wrap { gap: 56px; padding-block: 32px 72px; } }
+  @media (prefers-reduced-motion: no-preference) {
+    .band svg { animation: bob 5s ease-in-out infinite; }
+    .band svg:nth-child(2n) { animation-delay: -1.3s; }
+    .band svg:nth-child(3n) { animation-delay: -2.7s; }
+    @keyframes bob { 50% { translate: 0 -3px; } }
+    .flash { animation: flash 1.1s ease-out; }
+    @keyframes flash {
+      0% { background-color: var(--flash); color: #22303A; box-shadow: 0 0 0 4px var(--flash); }
+      100% { background-color: transparent; box-shadow: 0 0 0 4px transparent; }
+    }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="slice" viewBox="0 0 40 44">
+      <path d="M5 42V18C5 8 11 3 20 3s15 5 15 15v24z" fill="#FFF6E4" stroke="#A9621F" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M11 20c3-1 5 1 8 0M20 28c3-1 5 1 8 0M11 34c2-1 4 1 6 0" fill="none" stroke="#E7D3B0" stroke-width="1.6" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="drop" viewBox="0 0 12 16">
+      <path d="M6 1C6 1 1 7.5 1 10.5a5 5 0 0 0 10 0C11 7.5 6 1 6 1z" fill="#DCEAF4" stroke="#2E6D9B" stroke-width="1.4"/>
+    </symbol>
+  </defs>
+</svg>
+
+<main class="wrap">
+
+  <header class="hero">
+    <div class="band" id="band" aria-hidden="true"></div>
+    <div class="section-head">
+      <p class="eyebrow">Hokkaido com tangzhong</p>
+      <h1>Pão de Leite <span>Japonês</span></h1>
+    </div>
+    <p class="note">Macio, elástico e com cheiro de leite e manteiga.</p>
+    <p class="lead">O segredo é o tangzhong. Você cozinha um pouco de farinha com leite e água antes de fazer a massa. Essa mistura segura mais água e deixa o miolo muito macio.</p>
+    <p class="meta">Dificuldade: de iniciante a intermediária · 3 a 4 horas no total, com as fermentações</p>
+    <div class="facts card" role="list">
+      <div class="fact" role="listitem"><b>180 °C</b><small>forno</small></div>
+      <div class="fact" role="listitem"><b>30–40</b><small>minutos</small></div>
+      <div class="fact" role="listitem"><b id="fact-yield">1 pão</b><small id="fact-yield-sub">forma 23 × 10 × 10 cm</small></div>
+    </div>
+    <button class="awake" id="awake" type="button" aria-pressed="false" hidden>
+      <span class="dot" aria-hidden="true"></span>
+      <span id="awake-label">Manter a tela acesa enquanto cozinho</span>
+    </button>
+    <p class="awake-msg" id="awake-msg" hidden></p>
+  </header>
+
+  <section class="section" aria-labelledby="t-time">
+    <div class="section-head">
+      <p class="eyebrow">O dia do pão</p>
+      <h2 id="t-time">Linha do tempo</h2>
+      <p class="lead">Quase todo o tempo é de espera. A massa trabalha sozinha.</p>
+    </div>
+    <div class="timeline card" id="timeline"></div>
+    <div class="legend" aria-hidden="true">
+      <span><i style="background:var(--milk)"></i>mão na massa</span>
+      <span><i style="background:var(--crust)"></i>espera</span>
+      <span><i style="background:var(--milk-soft)"></i>pode levar até</span>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="t-totals">
+    <div class="section-head">
+      <p class="eyebrow">Antes de começar</p>
+      <h2 id="t-totals">Separe tudo</h2>
+    </div>
+
+    <div class="pan card">
+      <div class="pan-head">
+        <svg class="pan-icon" viewBox="0 0 52 44" aria-hidden="true">
+          <path d="M4 14h44l-4 26H8z" fill="var(--crust-soft)" stroke="var(--crust)" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 14c0-9 6-12 16-12s16 3 16 12" fill="var(--crumb)" stroke="var(--crust)" stroke-width="2"/>
+        </svg>
+        <div>
+          <p class="eyebrow">Forma recomendada</p>
+          <p class="pan-main">Retangular de 23 × 10 × 10&nbsp;cm</p>
+          <p class="pan-sub">Comprimento × largura × altura. Rende 1 pão grande com cerca de 685 g de massa.</p>
+        </div>
+      </div>
+      <button class="adjust" id="adjust" type="button" aria-expanded="false" aria-controls="panel">Ajustar a receita para outra forma</button>
+
+      <div class="panel" id="panel" hidden>
+        <div class="dims">
+          <label class="field" for="in-c">Comprimento
+            <span class="unit-wrap"><input id="in-c" type="text" inputmode="decimal" autocomplete="off" value="23"><span>cm</span></span>
+          </label>
+          <label class="field" for="in-l">Largura
+            <span class="unit-wrap"><input id="in-l" type="text" inputmode="decimal" autocomplete="off" value="10"><span>cm</span></span>
+          </label>
+          <label class="field" for="in-a">Altura
+            <span class="unit-wrap"><input id="in-a" type="text" inputmode="decimal" autocomplete="off" value="10"><span>cm</span></span>
+          </label>
+        </div>
+        <p class="hint">Meça a forma por dentro.</p>
+        <div class="count-row">
+          <span class="label" id="lbl-n">Quantas formas</span>
+          <div class="stepper" role="group" aria-labelledby="lbl-n">
+            <button class="step-btn" id="n-minus" type="button" aria-label="Menos uma forma">−</button>
+            <output id="n-out" aria-live="polite">1</output>
+            <button class="step-btn" id="n-plus" type="button" aria-label="Mais uma forma">+</button>
+          </div>
+        </div>
+        <div class="calc" aria-live="polite">
+          <b id="calc-pct">100%</b><span>da receita original</span>
+          <small id="calc-detail">Volume de 2.300 cm³ · cerca de 685 g de massa</small>
+        </div>
+        <p class="hint err" id="calc-err" hidden>Digite medidas entre 5 e 60 cm.</p>
+        <p class="hint">Temperatura e tempos de fermentação continuam iguais. O tempo de forno muda com o tamanho da forma. Confira o ponto pelo termômetro ou pela cor da casca.</p>
+        <button class="reset" id="reset" type="button">Voltar para 1 forma de 23 × 10 × 10 cm</button>
+      </div>
+    </div>
+
+    <p class="scaled" data-scaled hidden></p>
+    <p class="lead">Quantidade total da receita inteira. As medidas de cada etapa estão logo abaixo.</p>
+    <ul class="totals card">
+      <li><span>Farinha de trigo<span class="sub" data-t="farinhaSub">14 g no tangzhong e 300 g na massa</span></span><span class="qty" data-t="farinha">314 g</span></li>
+      <li><span>Leite integral<span class="sub" data-t="leiteSub">43 g no tangzhong e 113 g na massa</span></span><span class="qty" data-t="leite">156 g</span></li>
+      <li><span>Água</span><span class="qty" data-t="agua">43 g</span></li>
+      <li><span>Manteiga com sal<span class="sub">e um pouco para untar a tigela</span></span><span class="qty" data-t="manteiga">57 g</span></li>
+      <li><span>Açúcar</span><span class="qty" data-t="acucar">50 g</span></li>
+      <li><span>Ovo sem casca</span><span class="qty" data-t="ovo">50 g (≈ 1 ovo grande)</span></li>
+      <li><span>Fermento biológico seco instantâneo</span><span class="qty" data-t="fermento">10 g</span></li>
+      <li><span>Sal</span><span class="qty" data-t="sal">4 g</span></li>
+      <li><span>Óleo<span class="sub">para as mãos, se a massa grudar</span></span><span class="qty">2 a 3 g</span></li>
+    </ul>
+    <p class="aside">A receita usa manteiga com sal e um sachê de 10 g de fermento Fleischmann. Por isso o sal da massa fica em só 4 g.</p>
+  </section>
+
+  <section class="section" aria-labelledby="t-steps">
+    <div class="section-head">
+      <p class="eyebrow">Modo de preparo</p>
+      <h2 id="t-steps">Passo a passo</h2>
+    </div>
+    <p class="scaled" data-scaled hidden></p>
+
+    <div class="steps">
+
+      <article class="step card">
+        <div class="step-head">
+          <span class="num" aria-hidden="true">1</span>
+          <div><p class="eyebrow">Faça primeiro</p><h3>Tangzhong</h3></div>
+        </div>
+        <div class="step-body">
+          <div class="ingr">
+            <label><input type="checkbox" id="t1"><span class="name">Farinha de trigo</span><span class="qty">2 colheres de sopa<small>14 g</small></span></label>
+            <label><input type="checkbox" id="t2"><span class="name">Leite integral</span><span class="qty">3 colheres de sopa<small>43 g</small></span></label>
+            <label><input type="checkbox" id="t3"><span class="name">Água</span><span class="qty">3 colheres de sopa<small>43 g</small></span></label>
+          </div>
+          <p class="how-title">Como fazer</p>
+          <ol class="how">
+            <li>Numa panela pequena, ainda fora do fogo, misture tudo até não ter grumos.</li>
+            <li>Leve ao fogo baixo e mexa sem parar por 3 a 5 minutos.</li>
+            <li>Desligue quando engrossar e a espátula deixar um caminho no fundo da panela por alguns segundos.</li>
+            <li>Passe para uma tigela e deixe esfriar até ficar só morno.</li>
+          </ol>
+          <div class="tip"><p class="note">O tangzhong <b>não pode estar quente</b> quando encontrar o fermento.</p></div>
+        </div>
+      </article>
+
+      <article class="step card">
+        <div class="step-head">
+          <span class="num" aria-hidden="true">2</span>
+          <div><p class="eyebrow">Massa</p><h3>Misturar</h3></div>
+        </div>
+        <div class="step-body">
+          <div class="ingr">
+            <label><input type="checkbox" id="m1"><span class="name">Farinha de trigo</span><span class="qty">300 g</span></label>
+            <label><input type="checkbox" id="m2"><span class="name">Açúcar</span><span class="qty">50 g</span></label>
+            <label><input type="checkbox" id="m3"><span class="name">Sal</span><span class="qty">¾ de colher de chá<small>4 g</small></span></label>
+            <label><input type="checkbox" id="m4"><span class="name">Fermento biológico seco instantâneo</span><span class="qty">1 colher de sopa<small>10 g</small></span></label>
+            <label><input type="checkbox" id="m5"><span class="name">Tangzhong<em>morno</em></span><span class="qty">todo</span></label>
+            <label><input type="checkbox" id="m6"><span class="name">Leite integral</span><span class="qty">113 g</span></label>
+            <label><input type="checkbox" id="m7"><span class="name">Ovo sem casca</span><span class="qty">50 g<small>≈ 1 ovo grande</small></span></label>
+            <label><input type="checkbox" id="m8"><span class="name">Manteiga com sal<em>derretida e morna, não quente</em></span><span class="qty">57 g</span></label>
+          </div>
+          <p class="how-title">Como fazer</p>
+          <ol class="how">
+            <li>Numa tigela grande, misture a farinha, o açúcar, o sal e o fermento.</li>
+            <li>Junte todo o tangzhong, o leite, o ovo e a manteiga derretida.</li>
+            <li>Misture com uma colher ou espátula até formar uma massa uniforme.</li>
+          </ol>
+          <div class="tip"><p class="note">A massa fica bem macia e pegajosa. <b>Não acrescente farinha</b> para tentar secar.</p></div>
+        </div>
+      </article>
+
+      <article class="step card">
+        <div class="step-head">
+          <span class="num" aria-hidden="true">3</span>
+          <div><p class="eyebrow">10 a 15 minutos</p><h3>Sovar</h3></div>
+        </div>
+        <div class="step-body">
+          <div class="ingr">
+            <label><input type="checkbox" id="s1"><span class="name">Óleo para as mãos<em>só se a massa grudar demais</em></span><span class="qty">2 a 3 g</span></label>
+          </div>
+          <p class="how-title">Como fazer</p>
+          <ol class="how">
+            <li>Passe a massa para uma bancada limpa.</li>
+            <li>Se grudar demais nas mãos, unte as mãos com um pouco de óleo.</li>
+            <li>Empurre a massa para a frente com a base da mão. Puxe de volta, dobre sobre ela mesma e gire um quarto de volta. Repita.</li>
+            <li>Sove por 10 a 15 minutos no total. A massa vai ficando lisa, elástica e firme.</li>
+          </ol>
+          <div class="cycle" aria-label="Movimento da sova">
+            <span>empurrar</span><i>›</i><span>dobrar</span><i>›</i><span>girar</span><i>›</i><span>repetir</span>
+          </div>
+          <div class="box">
+            <strong>Teste do ponto</strong>
+            <p>Tire um pedaço de uns 10 g e estique com cuidado entre os dedos. Está no ponto quando estica bastante e forma uma película fina antes de rasgar.</p>
+            <p>A película não precisa ficar transparente. Se a massa já estiver elástica e firme, pare de sovar.</p>
+          </div>
+          <div class="tip">
+            <p class="note"><b>Não junte farinha</b> só porque a massa ainda gruda um pouco na bancada.</p>
+            <p class="note">Se cansar, faça em ciclos: 5 minutos de sova, 5 de descanso, 5 de sova.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="step card">
+        <div class="step-head">
+          <span class="num" aria-hidden="true">4</span>
+          <div><p class="eyebrow">60 a 90 minutos</p><h3>Primeira fermentação</h3></div>
+        </div>
+        <div class="step-body">
+          <div class="ingr">
+            <label><input type="checkbox" id="f1"><span class="name">Manteiga ou óleo<em>para untar a tigela</em></span><span class="qty">um pouco</span></label>
+          </div>
+          <p class="how-title">Como fazer</p>
+          <ol class="how">
+            <li>Faça uma bola com a massa.</li>
+            <li>Coloque numa tigela untada de leve.</li>
+            <li>Cubra com filme, tampa ou pano úmido.</li>
+            <li>Deixe em lugar morno e sem vento por 60 a 90 minutos.</li>
+          </ol>
+          <div class="tip"><p class="note">Guie-se pela massa e use o relógio só como referência. Ela deve ficar bem maior, aerada e inflada, quase o dobro do volume.</p></div>
+        </div>
+      </article>
+
+      <article class="step card">
+        <div class="step-head">
+          <span class="num" aria-hidden="true">5</span>
+          <div><p class="eyebrow">Dobrar e enrolar</p><h3>Modelar</h3></div>
+        </div>
+        <div class="step-body">
+          <p class="how-title">Como fazer</p>
+          <ol class="how">
+            <li>Passe a massa com cuidado para a bancada. Aperte de leve para tirar o excesso de ar.</li>
+            <li>Abra um retângulo com o comprimento parecido com o da forma.</li>
+            <li>Dobre em três, como uma carta: o terço esquerdo para o centro e depois o terço direito por cima.</li>
+            <li>Pegue uma ponta curta e enrole no sentido do comprimento, formando um cilindro. Enrole firme, sem esmagar.</li>
+            <li>Aperte a emenda de leve.</li>
+            <li>Coloque na forma com a emenda para baixo. Acerte as pontas para a massa ficar por igual.</li>
+          </ol>
+          <svg class="fold" viewBox="0 0 330 104" role="img" aria-label="Retângulo dobrado em três e depois enrolado em cilindro">
+            <rect x="4" y="16" width="96" height="58" rx="6" fill="var(--crumb)" stroke="var(--crust)" stroke-width="2"/>
+            <path d="M36 16v58M68 16v58" stroke="var(--crust)" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <path d="M18 46c6-12 16-12 22-4" fill="none" stroke="var(--milk)" stroke-width="2" marker-end="url(#arr)"/>
+            <path d="M86 46c-6-12-16-12-22-4" fill="none" stroke="var(--milk)" stroke-width="2" marker-end="url(#arr)"/>
+            <text x="52" y="94" text-anchor="middle">dobre em três</text>
+            <path d="M110 45h18" stroke="var(--ink-soft)" stroke-width="2" marker-end="url(#arr2)"/>
+            <rect x="142" y="16" width="40" height="58" rx="6" fill="var(--crumb)" stroke="var(--crust)" stroke-width="2"/>
+            <path d="M142 34h40M142 52h40" stroke="var(--crust-soft)" stroke-width="1.5"/>
+            <path d="M162 70v-44" stroke="var(--milk)" stroke-width="2" marker-end="url(#arr)"/>
+            <text x="162" y="94" text-anchor="middle">enrole</text>
+            <path d="M196 45h18" stroke="var(--ink-soft)" stroke-width="2" marker-end="url(#arr2)"/>
+            <rect x="228" y="26" width="96" height="38" rx="19" fill="var(--crumb)" stroke="var(--crust)" stroke-width="2"/>
+            <ellipse cx="247" cy="45" rx="10" ry="16" fill="none" stroke="var(--crust)" stroke-width="1.5"/>
+            <path d="M247 45m-5 0a5 8 0 1 0 10 0a5 8 0 1 0 -10 0" fill="none" stroke="var(--crust)" stroke-width="1.2"/>
+            <text x="276" y="94" text-anchor="middle">emenda para baixo</text>
+            <defs>
+              <marker id="arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--milk)"/></marker>
+              <marker id="arr2" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--ink-soft)"/></marker>
+            </defs>
+          </svg>
+          <div class="tip"><p class="note" data-multi hidden></p><p class="note">O cilindro fica deitado no mesmo sentido do comprimento da forma.</p></div>
+        </div>
+      </article>
+
+      <article class="step card">
+        <div class="step-head">
+          <span class="num" aria-hidden="true">6</span>
+          <div><p class="eyebrow">45 a 75 minutos</p><h3>Segunda fermentação</h3></div>
+        </div>
+        <div class="step-body">
+          <p class="how-title">Como fazer</p>
+          <ol class="how">
+            <li>Cubra a forma.</li>
+            <li>Deixe crescer por 45 a 75 minutos, até a massa ficar bem inflada, leve e macia.</li>
+            <li>Nesse meio tempo, comece a preaquecer o forno.</li>
+          </ol>
+          <div class="box">
+            <strong>Teste do dedo</strong>
+            <p>Aperte de leve a superfície com a ponta do dedo.</p>
+            <ul class="poke">
+              <li><span>A marca volta na hora</span><span class="tag">ainda falta</span></li>
+              <li><span>A marca volta devagar</span><span class="tag ok">no ponto</span></li>
+              <li><span>A marca fica e a massa parece sem força</span><span class="tag warn">passou do ponto</span></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="t-oven">
+    <div class="section-head">
+      <p class="eyebrow">Forno</p>
+      <h2 id="t-oven">Assar e esfriar</h2>
+    </div>
+    <div class="oven-card card">
+      <p class="how-title">Prepare o forno</p>
+      <ul class="dots">
+        <li>Preaqueça o forno elétrico a 180 °C por pelo menos 15 minutos.</li>
+        <li>Use a grade do meio.</li>
+        <li>Ligue a resistência de cima e de baixo.</li>
+        <li>Deixe a ventilação desligada, se o forno tiver.</li>
+        <li>Não use o grill.</li>
+      </ul>
+      <div class="oven">
+        <div><b>180 °C</b><small>de cima e de baixo</small></div>
+        <div><b>30–40</b><small>minutos</small></div>
+        <div class="wide"><b>90–93 °C</b><small>no centro do pão, se tiver termômetro</small></div>
+      </div>
+      <p class="how-title">Assar</p>
+      <ol class="how">
+        <li>Coloque a forma na grade do meio.</li>
+        <li>Asse por 30 minutos sem abrir o forno.</li>
+        <li>Aos 30 minutos, veja a cor e confira o ponto.</li>
+      </ol>
+      <div class="done">
+        <div class="box">
+          <strong>Com termômetro</strong>
+          <p>Espete no centro do pão. Está pronto entre 90 e 93 °C.</p>
+        </div>
+        <div class="box">
+          <strong>Sem termômetro</strong>
+          <p>O pão deve estar bem dourado e com a superfície firme. Se ainda estiver claro, asse mais 5 minutos e confira de novo.</p>
+        </div>
+      </div>
+      <p class="note">O tempo total costuma ficar entre 30 e 40 minutos. Depende do forno e da forma. Vale o ponto.</p>
+      <p class="how-title">Esfriar</p>
+      <ol class="how">
+        <li>Tire o pão do forno e espere 5 a 10 minutos.</li>
+        <li>Desenforme.</li>
+        <li>Coloque sobre uma grade, para o ar circular por baixo.</li>
+        <li>Espere pelo menos 30 minutos antes de cortar.</li>
+      </ol>
+      <div class="tip"><p class="note">O miolo termina de firmar enquanto esfria. Cortado quente, parece úmido e perde a textura.</p></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="t-keys">
+    <div class="section-head">
+      <p class="eyebrow">O que mais faz diferença</p>
+      <h2 id="t-keys">Cinco cuidados</h2>
+    </div>
+    <div class="keys">
+      <div class="key card"><strong>Pouca farinha</strong><p>A massa deve continuar macia e um pouco pegajosa. Não junte farinha a mais.</p></div>
+      <div class="key card"><strong>Sova até ficar elástica</strong><p>Sove até a massa ganhar elasticidade. A película não precisa ficar transparente.</p></div>
+      <div class="key card"><strong>As duas fermentações</strong><p>Respeite as duas. Olhe o volume e a aparência da massa.</p></div>
+      <div class="key card"><strong>Forno de cima e de baixo</strong><p>Asse a 180 °C, com as duas resistências, na grade do meio.</p></div>
+      <div class="key card"><strong>Esfriar antes de cortar</strong><p>Espere pelo menos 30 minutos fora da forma.</p></div>
+    </div>
+  </section>
+
+  <section class="result" aria-labelledby="t-result">
+    <div class="section-head">
+      <p class="eyebrow">Resultado</p>
+      <h2 id="t-result">Como ele fica</h2>
+    </div>
+    <ul>
+      <li>Casca fina e dourada.</li>
+      <li>Miolo muito macio e elástico, que volta em parte quando você aperta.</li>
+      <li>Sabor amanteigado e levemente doce.</li>
+      <li>Cheiro de leite e manteiga.</li>
+    </ul>
+    <div class="signoff">
+      <svg aria-hidden="true"><use href="#slice"/></svg>
+      <p class="note">Bom forno!</p>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  // Ajuste da receita ao tamanho e ao número de formas
+  (function () {
+    var BASE = { c: 23, l: 10, a: 10, n: 1 };
+    var BASE_VOL = BASE.c * BASE.l * BASE.a;
+    var MIN = 5, MAX = 60, NMIN = 1, NMAX = 6;
+    var KEY = 'pao-de-leite-japones-forma';
+
+    function nf(x, d) { return x.toLocaleString('pt-BR', { maximumFractionDigits: d === undefined ? 1 : d }); }
+    // Pão se pesa no grama: acima de 10 g, arredonda de 1 em 1.
+    function roundG(x) { return x < 10 ? Math.round(x * 2) / 2 : Math.round(x); }
+    function g(x, u) { return nf(roundG(x)) + ' ' + (u || 'g'); }
+    var FR = { '0': '', '0.25': '¼', '0.5': '½', '0.75': '¾' };
+    function frac(x, step) {
+      var r = Math.max(step, Math.round(x / step) * step);
+      var w = Math.floor(r + 1e-9), f = String(+(r - w).toFixed(2));
+      return { v: r, t: (w ? String(w) : '') + FR[f] };
+    }
+    function spoon(amount, per, unit) {
+      var tsp = amount / per * (unit === 'sopa' ? 3 : 1);
+      if (tsp < 0.2) return '1 pitada';
+      var r, name;
+      if (frac(tsp, 0.25).v >= 3) { r = frac(tsp / 3, 0.5); name = 'sopa'; } else { r = frac(tsp, 0.25); name = 'chá'; }
+      if (r.v === 0.5) return '½ colher de ' + name;
+      if (r.v < 1) return r.t + ' de colher de ' + name;
+      if (r.v < 2) return r.t + ' colher de ' + name;
+      return r.t + ' colheres de ' + name;
+    }
+    function eggs(f) {
+      var r = frac(f, 0.5);
+      return '≈ ' + r.t + (r.v > 1 ? ' ovos grandes' : ' ovo grande');
+    }
+
+    var I = {
+      tFar:   { kind: 'spoon', v: 14, per: 8, unit: 'sopa' },
+      tLeite: { kind: 'spoon', v: 43, per: 15, unit: 'sopa' },
+      tAgua:  { kind: 'spoon', v: 43, per: 15, unit: 'sopa' },
+      mFar:   { kind: 'g', v: 300 },
+      mAcu:   { kind: 'g', v: 50 },
+      mSal:   { kind: 'spoon', v: 4, per: 6, unit: 'cha' },
+      mFerm:  { kind: 'spoon', v: 10, per: 3, unit: 'cha' },
+      mLeite: { kind: 'g', v: 113 },
+      mOvo:   { kind: 'egg', v: 50 },
+      mMant:  { kind: 'g', v: 57 }
+    };
+    var INPUT_TO_KEY = { t1: 'tFar', t2: 'tLeite', t3: 'tAgua', m1: 'mFar', m2: 'mAcu', m3: 'mSal', m4: 'mFerm', m6: 'mLeite', m7: 'mOvo', m8: 'mMant' };
+
+    function measure(k, f) {
+      var it = I[k];
+      switch (it.kind) {
+        case 'g': return { main: g(it.v * f) };
+        case 'spoon': return { main: spoon(it.v * f, it.per, it.unit), sub: g(it.v * f) };
+        case 'egg': return { main: g(it.v * f), sub: eggs(f) };
+      }
+    }
+    function r(x, f) { return roundG(x * f); }
+    function totals(f) {
+      var far = r(14, f) + r(300, f), lei = r(43, f) + r(113, f);
+      return {
+        farinha: nf(Math.round(far)) + ' g',
+        farinhaSub: g(14 * f) + ' no tangzhong e ' + g(300 * f) + ' na massa',
+        leite: nf(Math.round(lei)) + ' g',
+        leiteSub: g(43 * f) + ' no tangzhong e ' + g(113 * f) + ' na massa',
+        agua: g(43 * f),
+        manteiga: g(57 * f),
+        acucar: g(50 * f),
+        ovo: g(50 * f) + ' (' + eggs(f) + ')',
+        fermento: g(10 * f),
+        sal: g(4 * f)
+      };
+    }
+    function doughWeight(f) {
+      var t = r(14, f) + r(300, f) + r(43, f) + r(113, f) + r(43, f) + r(57, f) + r(50, f) + r(50, f) + r(4, f) + r(10, f);
+      return Math.round(t / 5) * 5;
+    }
+    function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+
+    var state = { c: BASE.c, l: BASE.l, a: BASE.a, n: BASE.n };
+    try {
+      var s = JSON.parse(localStorage.getItem(KEY) || 'null');
+      if (s) {
+        ['c', 'l', 'a'].forEach(function (k) { if (typeof s[k] === 'number' && s[k] >= MIN && s[k] <= MAX) state[k] = s[k]; });
+        if (typeof s.n === 'number' && s.n >= NMIN && s.n <= NMAX) state.n = Math.round(s.n);
+      }
+    } catch (e) {}
+
+    function vol(st) { return st.c * st.l * st.a * st.n; }
+    function dimText(st) { return nf(st.c) + ' × ' + nf(st.l) + ' × ' + nf(st.a) + ' cm'; }
+    function panText(st) { return (st.n === 1 ? '1 forma de ' : st.n + ' formas de ') + dimText(st); }
+    function isDefault(st) { return st.c === BASE.c && st.l === BASE.l && st.a === BASE.a && st.n === BASE.n; }
+
+    function setHTML(el, html, animate) {
+      if (el.innerHTML === html) return;
+      el.innerHTML = html;
+      if (animate) { el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); }
+    }
+
+    function render(animate) {
+      var f = vol(state) / BASE_VOL;
+      Object.keys(INPUT_TO_KEY).forEach(function (id) {
+        var input = document.getElementById(id);
+        if (!input) return;
+        var q = input.parentNode.querySelector('.qty');
+        var m = measure(INPUT_TO_KEY[id], f);
+        setHTML(q, esc(m.main) + (m.sub ? '<small>' + esc(m.sub) + '</small>' : ''), animate);
+      });
+      var t = totals(f);
+      document.querySelectorAll('[data-t]').forEach(function (el) { setHTML(el, esc(t[el.getAttribute('data-t')]), animate); });
+
+      setHTML(document.getElementById('fact-yield'), state.n === 1 ? '1 pão' : state.n + ' pães', animate);
+      setHTML(document.getElementById('fact-yield-sub'), 'forma ' + esc(dimText(state)), animate);
+
+      var pct = Math.round(f * 100);
+      document.getElementById('calc-pct').textContent = pct + '%';
+      document.getElementById('calc-detail').textContent =
+        'Volume de ' + nf(Math.round(vol(state)), 0) + ' cm³ · cerca de ' + nf(doughWeight(f), 0) + ' g de massa';
+      var multi = document.querySelector('[data-multi]');
+      multi.hidden = state.n === 1;
+      multi.textContent = 'Antes de abrir o retângulo, divida a massa em ' + state.n + ' partes iguais, uma para cada forma.';
+      document.getElementById('n-out').textContent = state.n;
+      document.getElementById('n-minus').disabled = state.n <= NMIN;
+      document.getElementById('n-plus').disabled = state.n >= NMAX;
+
+      var flag = 'Quantidades ajustadas para ' + panText(state) + ' (' + pct + '% da receita original).';
+      document.querySelectorAll('[data-scaled]').forEach(function (el) { el.hidden = isDefault(state); el.textContent = flag; });
+      try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+    }
+
+    var btn = document.getElementById('adjust');
+    var panel = document.getElementById('panel');
+    var inC = document.getElementById('in-c'), inL = document.getElementById('in-l'), inA = document.getElementById('in-a');
+    var err = document.getElementById('calc-err');
+
+    function syncInputs() { inC.value = nf(state.c); inL.value = nf(state.l); inA.value = nf(state.a); err.hidden = true; }
+    function parse(v) { var x = parseFloat(String(v).replace(/\s/g, '').replace(',', '.')); return isFinite(x) ? x : NaN; }
+    function fromInputs() {
+      var v = [parse(inC.value), parse(inL.value), parse(inA.value)];
+      var ok = v.every(function (x) { return x >= MIN && x <= MAX; });
+      err.hidden = ok;
+      if (!ok) return;
+      state.c = v[0]; state.l = v[1]; state.a = v[2];
+      render(true);
+    }
+
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') !== 'true';
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.hidden = !open;
+    });
+    [inC, inL, inA].forEach(function (inp) {
+      inp.addEventListener('input', fromInputs);
+      inp.addEventListener('blur', function () { if (err.hidden) syncInputs(); });
+    });
+    document.getElementById('n-minus').addEventListener('click', function () { if (state.n > NMIN) { state.n--; render(true); } });
+    document.getElementById('n-plus').addEventListener('click', function () { if (state.n < NMAX) { state.n++; render(true); } });
+    document.getElementById('reset').addEventListener('click', function () {
+      state = { c: BASE.c, l: BASE.l, a: BASE.a, n: BASE.n };
+      syncInputs();
+      render(true);
+    });
+
+    syncInputs();
+    render(false);
+  })();
+</script>
+
+<script>
+  (function () {
+    // Faixa decorativa
+    var band = document.getElementById('band');
+    var html = '';
+    for (var i = 0; i < 14; i++) html += i % 2 ? '<svg class="drop"><use href="#drop"/></svg>' : '<svg class="slice"><use href="#slice"/></svg>';
+    band.innerHTML = html;
+
+    // Linha do tempo
+    var steps = [
+      { name: 'Tangzhong', min: 3, max: 5, label: '3–5 min + esfriar', hands: true },
+      { name: 'Misturar', quick: true, label: 'rápido' },
+      { name: 'Sovar', min: 10, max: 15, label: '10–15 min', hands: true },
+      { name: '1ª fermentação', min: 60, max: 90, label: '60–90 min' },
+      { name: 'Modelar', quick: true, label: 'rápido' },
+      { name: '2ª fermentação', min: 45, max: 75, label: '45–75 min' },
+      { name: 'Forno', min: 30, max: 40, label: '30–40 min' },
+      { name: 'Esfriar', min: 35, max: 40, label: '35 min ou mais' }
+    ];
+    var top = 90;
+    document.getElementById('timeline').innerHTML = steps.map(function (s) {
+      var track = s.quick
+        ? '<span class="tl-quick"></span>'
+        : '<span class="tl-bar" style="width:' + (s.max / top * 100) + '%"><i style="width:' + (s.min / s.max * 100) + '%"></i></span>';
+      return '<div class="tl-row' + (s.hands || s.quick ? '' : ' wait') + '"><span class="tl-name">' + s.name + '</span><span class="tl-track">' + track + '</span><span class="tl-time">' + s.label + '</span></div>';
+    }).join('');
+
+    // Ingredientes marcados (só neste aparelho)
+    var KEY = 'pao-de-leite-japones-marcados';
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { saved = {}; }
+    document.querySelectorAll('.ingr input[type=checkbox]').forEach(function (box) {
+      if (saved[box.id]) box.checked = true;
+      box.addEventListener('change', function () {
+        saved[box.id] = box.checked;
+        try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+      });
+    });
+
+    // Manter a tela acesa
+    var btn = document.getElementById('awake');
+    var label = document.getElementById('awake-label');
+    var msg = document.getElementById('awake-msg');
+    var lock = null, wanted = false;
+    if (!('wakeLock' in navigator)) return;
+    btn.hidden = false;
+    function setOn(on) {
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      label.textContent = on ? 'Tela acesa. Toque para desligar' : 'Manter a tela acesa enquanto cozinho';
+    }
+    function request() {
+      return navigator.wakeLock.request('screen').then(function (l) {
+        lock = l; msg.hidden = true; setOn(true);
+        l.addEventListener('release', function () { lock = null; if (!wanted) setOn(false); });
+      }).catch(function () {
+        wanted = false; setOn(false);
+        msg.textContent = 'Este aparelho não deixou manter a tela acesa por aqui.';
+        msg.hidden = false;
+      });
+    }
+    btn.addEventListener('click', function () {
+      if (wanted) { wanted = false; if (lock) lock.release(); setOn(false); }
+      else { wanted = true; request(); }
+    });
+    document.addEventListener('visibilitychange', function () {
+      if (wanted && !lock && document.visibilityState === 'visible') request();
+    });
+  })();
+</script>
+</body>
+</html>
